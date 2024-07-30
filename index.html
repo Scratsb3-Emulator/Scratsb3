@@ -4,58 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scratch Project Viewer</title>
-    <style>
-        #warning-message {
-            background-color: orange;
-            padding: 10px;
-            color: white;
-            font-family: Arial, sans-serif;
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-
-<h1>Scratch Project Viewer</h1>
-
-<div id="warning-message"></div>
-<canvas id="scratch-canvas" width="480" height="360"></canvas>
-
-<!-- Updated Scratch VM script link -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/scratch-vm/3.0.0/scratch-vm.min.js"></script>
-
-<script>
-    const canvas = document.getElementById('scratch-canvas');
-    const warningMessage = document.getElementById('warning-message');
-    const vm = new window.VirtualMachine();
-
-    // Load the Scratch sb3 project (Update project path)
-    fetch('project.sb3')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`The sb3 file was not found. Response status: ${response.status}`);
-            }
-            return response.arrayBuffer();
-        })
-        .then(buffer => vm.loadProject(buffer))
-        .then(() => {
-            // Initialize the canvas and start project execution
-            vm.attachStorage();
-            vm.attachRenderer(canvas);
-            vm.start();
-        })
-        .catch(error => {
-            console.error('Error loading the project:', error);
-            warningMessage.textContent = `OPS! Error: ${error.message}`;
-            warningMessage.style.display = 'block';
-            // Show custom text on the canvas in case of an error
-            const ctx = canvas.getContext('2d');
-            ctx.fillStyle = 'orange';
-            ctx.font = '20px Arial';
-            ctx.fillText('OPS! Error: ' + error.message, 20, 50);
-        });
-</script>
-
+    <h1>Scratch Project Viewer</h1>
+    <p>Ensure that your browser supports the necessary features.</p>
+    <script>
+        // Example JavaScript to ensure the page is working
+        console.log('Scratch Project Viewer loaded successfully');
+    </script>
 </body>
 </html>
-
